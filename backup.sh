@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PID_FILE=~/.backup/.restic_backup_eu.pid
-TIMESTAMP_FILE=~/.backup/.restic_backup_timestamp_eu
+# reads the configuration passed by parameter
+source $1
 
 # checks if a backup is already happening
 if [ -f "$PID_FILE" ]; then
@@ -20,7 +20,7 @@ if [ -f "$TIMESTAMP_FILE" ]; then
   current_time=$(date +"%s")
 
   if [ "$current_time" -lt "$time_run" ]; then
-    echo $(date +"%Y-%m-%d %T") "That is too early: $current_time < $time_run"
+    echo $(date +"%Y-%m-%d %T") "The backup started before 12h: $current_time < $time_run"
     exit 2
   fi
 fi
@@ -28,10 +28,12 @@ fi
 echo $$ > $PID_FILE
 echo $(date +"%Y-%m-%d %T") "Backup start"
 
-source "backup-eu.cfg"
+export RESTIC_PASSWORD=$RESTIC_PASSWORD
+export B2_ACCOUNT_ID=$B2_ACCOUNT_ID
+export B2_ACCOUNT_KEY=$B2_ACCOUNT_KEY
 
-/usr/local/bin/restic -v -r b2:matteo-backup-eu backup /Users/matteo/Documents -o b2.connections=10
-/usr/local/bin/restic -v -r b2:matteo-backup-eu forget --keep-last 10
+/usr/local/bin/restic -v -r $REPOSITORY_NAME backup /Users/matteo/Documents -o b2.connections=10
+/usr/local/bin/restic -v -r $REPOSITORY_NAME forget --keep-last 10
 
 echo $(date +"%Y-%m-%d %T") "Backup finished"
 echo $(date -v +12H +"%s") > $TIMESTAMP_FILE
