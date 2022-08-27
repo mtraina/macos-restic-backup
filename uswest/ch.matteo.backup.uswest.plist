@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC -//Apple Computer//DTD PLIST 1.0//EN
+http://www.apple.com/DTDs/PropertyList-1.0.dtd>
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ch.matteo.restic-backup-uswest</string>
+
+    <key>Program</key>
+    <string>/Users/matteo/.backup/backup-uswest.sh</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+	<key>Hour</key>
+	<integer>10</integer>
+	<key>Minute</key>
+	<integer>0</integer>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/matteo/</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/matteo/Library/Logs/ch.matteo.restic-backup-uswest.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/matteo/Library/Logs/ch.matteo.restic-backup-uswest.error.log</string>
+</dict>
+</plist>
