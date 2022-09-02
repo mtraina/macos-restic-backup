@@ -1,4 +1,14 @@
+# Restic / B2 based backup
+## Setup
+- Copy the content into the target folder, i.e. ~/.backup
+- Fill the details of the configuration files, assumption is you are running a backup into the EU instance of B2 and one on the US West one.
+- Adjust the full-backup script for your specific use case
+- Adjust the schedule.txt file with your preferred schedule
+- Load the configuration with 
+```
+crontab schedule.txt
+```
+
 # References 
 - https://restic.net/
 - https://szymonkrajewski.pl/macos-backup-restic/
-- 
