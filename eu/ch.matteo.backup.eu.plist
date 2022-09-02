@@ -7,7 +7,7 @@ http://www.apple.com/DTDs/PropertyList-1.0.dtd>
     <string>ch.matteo.restic-backup-eu</string>
 
     <key>Program</key>
-    <string>/Users/matteo/.backup/backup-eu.sh</string>
+    <string>/Users/matteo/.backup/eu/backup-eu</string>
 
     <key>RunAtLoad</key>
     <true/>

@@ -7,7 +7,7 @@ http://www.apple.com/DTDs/PropertyList-1.0.dtd>
     <string>ch.matteo.restic-backup-uswest</string>
 
     <key>Program</key>
-    <string>/Users/matteo/.backup/backup-uswest.sh</string>
+    <string>/Users/matteo/.backup/uswest/backup-uswest</string>
 
     <key>RunAtLoad</key>
     <true/>

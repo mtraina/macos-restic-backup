@@ -1,0 +1,1 @@
+0 9,14,16,21 * * * /Users/matteo/full-backup.sh >> /Users/matteo/.backup/logs/backup.log
